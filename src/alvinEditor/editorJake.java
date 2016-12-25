@@ -6,7 +6,6 @@ import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 
 import javax.swing.*;
-import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.border.BevelBorder;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
@@ -17,20 +16,22 @@ import javax.swing.undo.UndoManager;
 
 import java.util.*;
 import java.util.StringTokenizer;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.net.URI;
-import java.net.URL;
 import java.io.*;
 
 public class editorJake extends JFrame{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JFrame frame;	
 	JMenuBar menuBar;
-	static JTextArea textArea;
+	public static JTextArea textArea;
 	JFileChooser fileChooser;
 	String sizeFileName;
 	JMenu file,edit,format,insert,tools,help,tLook,fColor,about;
@@ -50,7 +51,7 @@ public class editorJake extends JFrame{
 	JButton bOpen,bNew,bSave,bFont,bColor,bDictionary,bMath;
 	JPanel statusPanel;
 	String fileContent;
-	JTextArea textArea2; 
+	 JTextArea textArea2; 
 	UndoManager undo;
 	UndoAction undoAction;
 	RedoAction redoAction;
@@ -131,7 +132,7 @@ public class editorJake extends JFrame{
 		fPrint.addActionListener(new ActionListener (){
 			@Override
 			public void actionPerformed(ActionEvent e){
-				PrintFile p = new PrintFile();
+				PrintFile p = new PrintFile(textArea.getText());
 				
 		         PrinterJob job = PrinterJob.getPrinterJob();
 		         job.setPrintable(p);
@@ -580,17 +581,31 @@ public class editorJake extends JFrame{
 	
 	compile.addActionListener(new ActionListener (){
 		@Override
-		public void actionPerformed(ActionEvent e){				
-			MyCode ab = new MyCode(1);
+		public void actionPerformed(ActionEvent e){	
+			if(fileName!=null){
+				save();
+				try {
+					//new MyCode(fileName);
+					consoleFrame cf = new consoleFrame(frameMain);
+					cf.setVisible(true);
+					cf.consoleFunction(fileName);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
 		}
 	});
 	
-	run.addActionListener(new ActionListener (){
+	/*run.addActionListener(new ActionListener (){
 		@Override
 		public void actionPerformed(ActionEvent e){				
-			MyCode ab = new MyCode(2);
+			new MyCode(2);
 		}
-	});
+	});*/
 	
 	}
 	
@@ -785,8 +800,8 @@ private void initComponent()
 	toolBar.add(compile);
 	
 	//ImageIcon iCompile = new ImageIcon(getClass().getResource("/image/ICompile.png"));
-	run = new JButton(iCompile);
-	toolBar.add(run);
+	//run = new JButton(iCompile);
+	//toolBar.add(run);
 	
 	statusPanel = new JPanel();
 	statusPanel.setBorder(new BevelBorder(BevelBorder.LOWERED));
@@ -807,16 +822,14 @@ private void initComponent()
 	statusPanel.add(searchLabel);
 	statusPanel.add(searchField);
 	
-	
-	
-	
+
 	getContentPane().add(statusPanel, BorderLayout.SOUTH);
 
 	
 	
 	textArea = new JTextArea();
 	
-	textArea.setFont(new Font("Century", Font.PLAIN, 18));
+	textArea.setFont(new Font("Calibri", Font.PLAIN, 14));
 	
 	getContentPane().add(textArea);
 	getContentPane().add(new JScrollPane(textArea) , BorderLayout.CENTER);
@@ -959,6 +972,7 @@ private void initComponent()
 				fileName = jFC.getSelectedFile().getName();
 				setTitle(fileName = jFC.getSelectedFile().getName());
 				sizeFileName=fileName;
+				in.close();
 			}
 
 		}
@@ -966,6 +980,7 @@ private void initComponent()
 		{
 			e.printStackTrace();
 		}
+		
 	}
 	
 	private void openNew()
@@ -981,7 +996,7 @@ private void initComponent()
 					clear();
 				}
 				else if(op==2)
-				{}
+				{clear();}
 				else
 				{
 					clear();
@@ -997,7 +1012,10 @@ private void initComponent()
 				}
 				else if(op==2)
 				{
-					
+					clear();
+				}
+				else{
+					clear();
 				}
 			}
 		}
@@ -1017,6 +1035,10 @@ private void initComponent()
 	
 	class UndoAction extends AbstractAction
 	{
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public UndoAction(ImageIcon iUndo)
 		{
 			super("Undo",iUndo);
@@ -1053,6 +1075,10 @@ private void initComponent()
 	
 	class RedoAction extends AbstractAction
 	{
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public RedoAction(ImageIcon iRedo)
 		{
 			super("Redo",iRedo);

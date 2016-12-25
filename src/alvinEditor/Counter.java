@@ -2,11 +2,7 @@ package alvinEditor;
 
 import java.awt.BorderLayout;
 import java.awt.Toolkit;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Scanner;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;

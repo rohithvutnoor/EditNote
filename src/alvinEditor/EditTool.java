@@ -69,8 +69,8 @@ public class EditTool extends JDialog implements ActionListener
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setResizable(false);
 		setSize(500,200);
-		int x = (owner.getWidth()*3/5)-(getWidth()/2);
-		int y = (owner.getHeight()*3/5)-(getHeight()/2);
+		//int x = (owner.getWidth()*3/5)-(getWidth()/2);
+		//int y = (owner.getHeight()*3/5)-(getHeight()/2);
 		//setLocation(x,y);
 		setLocationRelativeTo(owner);
 		setVisible(true);

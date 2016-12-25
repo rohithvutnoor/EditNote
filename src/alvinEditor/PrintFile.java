@@ -2,8 +2,13 @@ package alvinEditor;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.print.*;
+import java.util.StringTokenizer;
 public class PrintFile extends JDialog implements Printable{
 
+	String text = null;
+	PrintFile(String textArea){
+		text = textArea;
+	}
 	private static final long serialVersionUID = 1L;
 
 		public int print(Graphics g, PageFormat pf, int page) throws PrinterException {
@@ -17,7 +22,13 @@ public class PrintFile extends JDialog implements Printable{
 	        g2d.translate(pf.getImageableX(), pf.getImageableY());
 
 	        /* Now we perform our rendering */
-	        g.drawString("Hello world!", 100, 100);
+	        int i = 85;
+	        StringTokenizer st = new StringTokenizer(text,System.getProperty("line.separator"));
+			while(st.hasMoreElements()){
+				g.drawString(st.nextToken(), 70, i);
+				i = i+20;
+			}
+	        
 	        
 	        return PAGE_EXISTS;
 	    }
