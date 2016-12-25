@@ -1,5 +1,5 @@
 import java.io.IOException;
-public class CMDWindowEffets
+public class OpenCMD
 {
 	public static void main(String []args){
     public static void getch() throws IOException, InterruptedException
