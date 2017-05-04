@@ -8,9 +8,9 @@
 ![Project EditNote](http://rohithvutnoor.com/images/project/EditNote.png)
 
 
-Hello EveryOne
+---
 
-Update:
+# Update:
 
 * Now Compile your Java Code within the Editor
 
@@ -21,3 +21,7 @@ Update:
 
 * New Version..  : Search Complexity  O(word.length)	
                             : Trie DataStructure
+
+---
+
+![Project EditNote](http://rohithvutnoor.com/images/project/EditNoteUpdate.png)
