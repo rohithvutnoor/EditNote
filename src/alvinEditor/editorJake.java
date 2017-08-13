@@ -56,7 +56,7 @@ public class editorJake extends JFrame{
 	UndoAction undoAction;
 	RedoAction redoAction;
 	
-	JButton compile,run;
+	JButton compile,run, techPC;
 	
 	String lf1,lf2,lf3,lf4,lf5;
 	String tempResult;
@@ -600,6 +600,22 @@ public class editorJake extends JFrame{
 		}
 	});
 	
+	techPC.addActionListener(new ActionListener (){
+		@Override
+		public void actionPerformed(ActionEvent e){				
+			try {
+				GUIProgram.createAndShowGUI(frameMain);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			//ab.setVisible(true);
+		}
+	});
+	
 	/*run.addActionListener(new ActionListener (){
 		@Override
 		public void actionPerformed(ActionEvent e){				
@@ -798,6 +814,10 @@ private void initComponent()
 	ImageIcon iCompile = new ImageIcon(getClass().getResource("/image/ICompile.png"));
 	compile = new JButton(iCompile);
 	toolBar.add(compile);
+	
+	ImageIcon itechPC = new ImageIcon(getClass().getResource("/image/ICompile.png"));
+	techPC = new JButton(itechPC);
+	toolBar.add(techPC);
 	
 	//ImageIcon iCompile = new ImageIcon(getClass().getResource("/image/ICompile.png"));
 	//run = new JButton(iCompile);
