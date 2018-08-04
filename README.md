@@ -5,7 +5,7 @@
 ### A Java Application for Editing and Much More
 
 
-![Project EditNote](http://rohithvutnoor.com/images/project/EditNote.png)
+![Project EditNote](http://rohithvutnoor.info/images/project/EditNote.png)
 
 
 ---
@@ -24,7 +24,7 @@
 
 ---
 
-![Project EditNote](http://rohithvutnoor.com/images/project/EditNoteUpdate.png)
+![Project EditNote](http://rohithvutnoor.info/images/project/EditNoteUpdate.png)
 
 ---
 
@@ -44,14 +44,14 @@
 ---
 
 ### TechPC Feature View
-![TechPC](http://rohithvutnoor.com/images/project/TPCnotFound.png)
+![TechPC](http://rohithvutnoor.info/images/project/TPCnotFound.png)
 
 ---
 
 ### Browse Online
-![TechPC](http://rohithvutnoor.com/images/project/TPCbrowse1.JPG)
+![TechPC](http://rohithvutnoor.info/images/project/TPCbrowse1.JPG)
 
 ---
 
 ### Browse Online
-![TechPC](http://rohithvutnoor.com/images/project/TPCbrowse2.png)
+![TechPC](http://rohithvutnoor.info/images/project/TPCbrowse2.png)
